@@ -2,13 +2,47 @@
   "name": "vitesse",
   "version": "0.0.1",
   "description": "This is a WordPress theme with Vite for fast development.",
-  "main": "index.js",
+  "config": {
+    "browsersync": {
+      "proxy": "localhost:8000",
+      "port": 3000
+    },
+    "image": {
+      "src": "public/images",
+      "dist": "assets/images"
+    },
+    "js": {
+      "entry": "src/js/main.js",
+      "output": "assets/js"
+    },
+    "css": {
+      "src": "src/sass",
+      "dist": "assets/css"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all -p browser watch",
+    "build": "vite build",
+    "browser": "cross-conf-env browser-sync \"http://$npm_package_config_browsersync_proxy\" -f \"**/*.php\" \"$npm_package_config_css_dist\" \"$npm_package_config_js_output\" \"$npm_package_config_image_dist\" --port $npm_package_config_browsersync_port",
+    "vite": "vite build",
+    "watch:vite": "npm run vite -- --watch --mode development",
+    "watch": "run-p watch:*"
   },
   "author": {
     "name": "Sena Murakami",
     "url": "https://github.com/SenaMurakami"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.18",
+    "browser-sync": "^3.0.2",
+    "cross-conf-env": "^1.3.0",
+    "cross-env": "^7.0.3",
+    "fs": "^0.0.1-security",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "path": "^0.12.7",
+    "postcss": "^8.4.36",
+    "vite": "^5.1.6"
+  }
 }
