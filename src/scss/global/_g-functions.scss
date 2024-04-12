@@ -1,0 +1,10 @@
+@use 'sass:math';
+
+@function rem($px) {
+  @return #{$px / 16}rem;
+}
+
+@function vw($size, $vw) {
+  $number: math.div($size, $vw);
+  @return $number * 100vw;
+}

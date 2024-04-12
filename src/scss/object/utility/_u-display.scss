@@ -1,0 +1,13 @@
+@use "../../global" as *;
+
+.u-pc {
+  @include mq(max960) {
+    display: none !important;
+  }
+}
+
+.u-sp {
+  @include mq(min961) {
+    display: none !important;
+  }
+}

@@ -1,0 +1,61 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table {
+  border: 0;
+  vertical-align: bottom;
+}
+
+span, tr, th, td {
+  vertical-align: baseline;
+}
+
+div, article, header, footer, aside, figure, figcaption, nav, section { 
+  display: block;
+}
+
+span {
+  display: inline-block;
+}
+
+ol, ul, li {
+  list-style: none;
+  list-style-type: none;
+}
+
+p, a, h1, h2, h3, h4, li, div, span, dt, dd, th, td {
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+button,
+select,
+textarea {
+  appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: currentColor;
+  font: inherit;
+  font-size   : 100%;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input,
+label,
+button,
+select {
+  cursor: pointer;
+}

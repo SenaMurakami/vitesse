@@ -1,0 +1,33 @@
+@use "../../global" as *;
+
+@for $i from 1 through 10 {
+  .u-mt-#{$i} {
+    margin-top: calc($baseSpacing * $i) !important;
+  }
+  .u-mr-#{$i} {
+    margin-right: calc($baseSpacing * $i) !important;
+  }
+  .u-ml-#{$i} {
+    margin-left: calc($baseSpacing * $i) !important;
+  }
+  .u-mb-#{$i} {
+    margin-bottom: calc($baseSpacing * $i) !important;
+  }
+}
+
+@include mq(max960) {
+  @for $i from 1 through 10 {
+    .u-mt-#{$i}-sp {
+      margin-top: calc($baseSpacing * $i) !important;
+    }
+    .u-mr-#{$i}-sp {
+      margin-right: calc($baseSpacing * $i) !important;
+    }
+    .u-ml-#{$i}-sp {
+      margin-left: calc($baseSpacing * $i) !important;
+    }
+    .u-mb-#{$i}-sp {
+      margin-bottom: calc($baseSpacing * $i) !important;
+    }
+  }
+}

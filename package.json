@@ -2,31 +2,14 @@
   "name": "vitesse",
   "version": "0.0.1",
   "description": "This is a WordPress theme with Vite for fast development.",
-  "config": {
-    "browsersync": {
-      "proxy": "localhost:8000",
-      "port": 3000
-    },
-    "image": {
-      "src": "public/images",
-      "dist": "assets/images"
-    },
-    "js": {
-      "entry": "src/js/main.js",
-      "output": "assets/js"
-    },
-    "css": {
-      "src": "src/sass",
-      "dist": "assets/css"
-    }
-  },
   "scripts": {
-    "dev": "npm-run-all -p browser watch",
-    "build": "vite build",
-    "browser": "cross-conf-env browser-sync \"http://$npm_package_config_browsersync_proxy\" -f \"**/*.php\" \"$npm_package_config_css_dist\" \"$npm_package_config_js_output\" \"$npm_package_config_image_dist\" --port $npm_package_config_browsersync_port",
+    "dev": "npm-run-all -p watch",
+    "build": "npm-run-all vite sharp:all",
     "vite": "vite build",
     "watch:vite": "npm run vite -- --watch --mode development",
-    "watch": "run-p watch:*"
+    "watch:sharp": "onchange \"public/images/**/*.{png,jpg,jpeg,svg,gif}\" -- node sharp-watch.mjs {{changed}}",
+    "watch": "run-p watch:*",
+    "sharp:all": "node sharp-all.mjs"
   },
   "author": {
     "name": "Sena Murakami",
@@ -35,7 +18,6 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^10.4.18",
-    "browser-sync": "^3.0.2",
     "cross-conf-env": "^1.3.0",
     "cross-env": "^7.0.3",
     "fs": "^0.0.1-security",
@@ -43,6 +25,13 @@
     "onchange": "^7.1.0",
     "path": "^0.12.7",
     "postcss": "^8.4.36",
-    "vite": "^5.1.6"
+    "sass": "^1.75.0",
+    "sharp": "^0.33.3",
+    "vite": "^5.1.6",
+    "vite-plugin-browser-sync": "^3.0.2"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "scroll-hint": "^1.2.5"
   }
 }

@@ -1,0 +1,58 @@
+@use '../global' as *;
+
+html {
+  font-size: 10px;
+  text-size-adjust: 100%;
+
+  @include mq(min1921) {
+    font-size: calc(100vw / 192);
+  }
+
+  @include mq(max1280) {
+    font-size: calc(100vw / 128);
+  }
+
+  @include mq(max960) {
+    font-size: calc(100vw / 75);
+  }
+}
+
+body {
+  background-color: $white;
+  font-family: $noto;
+  font-feature-settings: "palt";
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: .08em;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  display: inline-block;
+}
+
+a:not([class]) {
+  color: $primary;
+  text-decoration: underline;
+  @include mq(min961) {
+    transition: opacity ease 0.3s;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+picture {
+  line-height: 0;
+  display: inherit;
+
+  img {
+    vertical-align: baseline;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

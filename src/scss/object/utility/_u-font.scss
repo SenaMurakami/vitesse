@@ -1,0 +1,19 @@
+@use "../../global" as *;
+
+.u-fc-white {
+  color: $white !important;
+}
+
+.u-ta-left {
+  text-align: left !important;
+}
+
+.u-ta-right {
+  text-align: right !important;
+}
+
+@include mq(min961) {
+  .u-ta-left-pc {
+    text-align: left !important;
+  } 
+}

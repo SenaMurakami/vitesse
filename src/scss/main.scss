@@ -1,10 +1,5 @@
-body {
-  background-color: #eee;
-  display: flex;
-  border-radius: 10px;
-  background: no-repeat 100px url(../images/github-mark.png);
-
-  p {
-    color: #000;
-  }
-}
+@use "./foundation";
+@use "./layouts";
+@use "./object/components";
+@use "./object/project";
+@use "./object/utility";

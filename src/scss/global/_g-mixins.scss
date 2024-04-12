@@ -1,0 +1,29 @@
+@use 'sass:math';
+
+// fontSize
+@mixin fontSize($fontSize, $lineHeight) {
+  font-size: $fontSize;
+  line-height: math.div($lineHeight, $fontSize);
+}
+
+// breakpoints
+$breakpoint: (
+  max960: 'screen and (max-width: 960px)',
+  min961: 'screen and (min-width: 961px)',
+  max1280: 'screen and (max-width: 1280px)',
+  max1700: 'screen and (max-width: 1700px)',
+  max1920: 'screen and (max-width: 1920px)',
+  min1921: 'screen and (min-width: 1921px)',
+);
+
+@mixin mq($bp) {
+  @media #{map-get($breakpoint, $bp)} {
+   @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
